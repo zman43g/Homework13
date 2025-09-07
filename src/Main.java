@@ -6,7 +6,7 @@ public class Main {
         return leapYear;
     }
 
-    public static String osTypeAndYear(int clientOs, int deviceYear) {
+    public static String printVersionAndOs(int clientOs, int deviceYear) {
         String operationSystem;
         if (clientOs == 0) {
             operationSystem = "iOS";
@@ -14,12 +14,11 @@ public class Main {
             operationSystem = "Android";
         }
         if (deviceYear >= 2015) {
-            operationSystem = "обычную версию для " + operationSystem;
-            ;
+            operationSystem = "Установите обычную версию для " + operationSystem;
         } else {
-            operationSystem = "облегченную версию для " + operationSystem;
-            ;
+            operationSystem = "Установите облегченную версию для " + operationSystem;
         }
+        System.out.println(operationSystem);
         return operationSystem;
     }
 
@@ -34,11 +33,11 @@ public class Main {
         } else {
             deliveryTime = 0;
             System.out.println("Доставки нет!");
-            ;
         }
-
+        if (deliveryTime > 0) {
+            System.out.println("Потребуется дней: " + deliveryTime);
+        }
         return deliveryTime;
-
     }
 
     public static void main(String[] args) {
@@ -51,14 +50,13 @@ public class Main {
         }
 
         System.out.println("Задача 2");
-        int clientOs = 0;
-        int deviceYear = 2016;
-        System.out.println("Установите " + osTypeAndYear(clientOs,deviceYear));
+        int clientOs = 1;
+        int deviceYear = 2013;
+        printVersionAndOs(clientOs, deviceYear);
 
         System.out.println("Задача 3");
-        int distance = 22;
-        if (deliveryTime(distance) > 0) {
-            System.out.println("Потребуется дней: " + deliveryTime(distance));
-        }
+        int distance = 11;
+        deliveryTime(distance);
+
     }
 }
